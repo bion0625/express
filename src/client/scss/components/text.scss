@@ -1,0 +1,22 @@
+.text-mixin__container{
+    display: flex;
+    border-bottom: 1px solid white;
+    align-items: end;
+    justify-content: space-between;
+    .text-mixin__title{
+        margin-left: 100px;
+        color: white;
+        font-size: 30px;
+    }
+    .text-mixin__content{
+        color: tomato;
+        .text-mixin__author{
+            font-size: 20px;
+            margin-right: 20px;
+        }
+        .text-mixin__views{
+            font-size: 15px;
+            margin-right: 20px;
+        }
+    }
+}

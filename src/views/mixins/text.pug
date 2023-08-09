@@ -1,0 +1,8 @@
+mixin text(info)
+    div.text-mixin__container
+        a(href=`/text/${info.id}`)
+            span.text-mixin__title=info.title
+        br
+        span.text-mixin__content
+            span.text-mixin__author=info.owner.username
+            span.text-mixin__views=info.views

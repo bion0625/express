@@ -1,9 +1,9 @@
 extends base
-include mixins/video
+include mixins/text
 
 block content 
-    div.video__grid
-        each item in videos
-            +video(item)
+    div.home__text
+        each item in texts
+            +text(item)
         else 
-            sapn.empty__message No Video found
+            sapn.empty__message No Text found

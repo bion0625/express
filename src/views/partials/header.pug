@@ -1,0 +1,27 @@
+header 
+    a(href="/").header__logo
+        img(src="/staticfile/logo.jpg")
+    nav 
+        ul 
+            li 
+                a(href="/search") 
+                    i.fas.fa-search
+            if loggedIn
+                li 
+                    a(href="/videos/upload") Upload Video 
+                li 
+                    a(href="/users/edit") Edit profile 
+                li 
+                    a(href="/users/logout") LOG OUT
+                li 
+                    a(href=`/users/${loggedInUser._id}`)
+                        if !loggedInUser.avatarUrl
+                            span ＠
+                        else 
+                            img.header__avatar(src=loggedInUser.avatarUrl)
+                                
+            else
+                li 
+                    a(href="/login") LOGIN
+                li 
+                    a(href="/join").header__btn JOIN

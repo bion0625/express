@@ -39,7 +39,12 @@ input[type="submit"],
         opacity: 0.5;
         pointer-events: none;
     }
-    cursor: pointer;
+    cursor: pointer !important;
+}
+
+input[type="button"]{
+    text-align: center !important;
+    cursor: pointer !important;
 }
 
 textarea{

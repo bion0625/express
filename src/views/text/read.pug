@@ -1,13 +1,15 @@
 extends ../base.pug
 
 block content 
-    div.write__container
+    div(id="textReadContainer").write__container(data-id=text._id)
         if errorMessage
             span=errorMessage
         form(action=`/text/detail/${text._id}`)
             input(disabled value=text.title)
             textarea(disabled)=text.text
-            input(value="modify", type="submit")
+            if String(loggedInUser._id)===String(text.owner)
+                input(value="modify", type="submit")
+                input(value="delete", type="button", id="textDelete")
 
 block scripts
-    //- script(src="/static/js/recorder.js") 
+    script(src="/static/js/text.js") 

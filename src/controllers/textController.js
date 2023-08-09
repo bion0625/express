@@ -42,3 +42,13 @@ export const postDetail = async (req, res) => {
         );
     res.redirect(`/text/read/${id}`); 
 };
+
+export const deleteText = async (req, res) => {
+    const {id} = req.params;
+    try{
+        await Text.findByIdAndDelete(id);
+        res.sendStatus(200);
+    }catch{
+        res.sendStatus(404);
+    }
+};

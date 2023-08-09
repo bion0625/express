@@ -1,12 +1,12 @@
-extends ../base.pug
-include ../mixins/video
+extends ../base
+include ../mixins/text
 
 block content 
     div.profile__data
         img(src=user.avatarUrl).avatar
         h3=user.name
-    div.video__grid
-        each item in user.videos
-            +video(item)
+    div.home__text
+        each item in texts
+            +text(item)
         else 
-             sapn.empty__message No Video found
+            sapn.empty__message No Text found

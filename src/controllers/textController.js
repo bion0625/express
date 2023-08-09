@@ -14,7 +14,7 @@ export const postWrite = async (req, res) => {
         text,
         owner:_id
     });
-    res.redirect("/text/write");
+    res.redirect("/");
 };
 
 export const getRead = async (req, res) => {

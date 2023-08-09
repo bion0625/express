@@ -1,5 +1,6 @@
 import User from "../models/User";
 import Video from "../models/Video";
+import Text from "../models/Text";
 import bcrypt from "bcrypt";
 
 export const getJoin = (req, res) => res.render("join", {pageTitle:"Create Account"});
@@ -192,18 +193,10 @@ export const postChangePassword = async (req, res) => {
 
 export const see = async (req, res) => {
     const { id } = req.params;
-    const user = await User.findById(id).populate({
-        path:"videos",
-        populate:{
-            path:"owner",
-            medel:"User"
-        },
-        options:{
-            sort:{createdAt: "desc"}
-        },
-    });
+    const user = await User.findById(id);
     if(!user){
         return res.status(404).render("404", {pageTitle:"User not found."});
     }
-    return res.render("users/profile", {pageTitle: user.name, user});
+    const texts = await Text.find({owner:id})
+    return res.render("users/profile", {pageTitle: user.name, user, texts});
 };

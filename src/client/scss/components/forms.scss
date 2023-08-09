@@ -39,4 +39,13 @@ input[type="submit"],
         opacity: 0.5;
         pointer-events: none;
     }
+    cursor: pointer;
+}
+
+textarea{
+    height: 500px;
+}
+
+.modify{
+    border: 1px solid white;
 }

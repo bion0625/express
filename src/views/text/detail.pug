@@ -1,0 +1,13 @@
+extends ../base.pug
+
+block content 
+    div.write__container
+        if errorMessage
+            span=errorMessage
+        form(method="POST").modify
+            input(name="title", value=text.title)
+            textarea(name="text")=text.text
+            input(value="update", type="submit")
+
+block scripts
+    //- script(src="/static/js/recorder.js") 

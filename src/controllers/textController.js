@@ -16,3 +16,29 @@ export const postWrite = async (req, res) => {
     });
     res.redirect("/text/write");
 };
+
+export const getRead = async (req, res) => {
+    const {id} = req.params;
+    const text = await Text.findById(id);
+    text.views++;
+    await text.save();
+    res.render("text/read", {text});
+};
+
+export const getDetail = async (req, res) => {
+    const {id} = req.params;
+    const text = await Text.findById(id);
+    res.render("text/detail", {text});
+};
+
+export const postDetail = async (req, res) => {
+    const {
+        params: {id},
+        body: {title, text}
+    } = req;
+    const newText = await Text.findByIdAndUpdate(
+        id,
+        {title, text},
+        );
+    res.redirect(`/text/read/${id}`); 
+};

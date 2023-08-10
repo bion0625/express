@@ -52,3 +52,28 @@ export const deleteText = async (req, res) => {
         res.sendStatus(404);
     }
 };
+
+export const search = async (req, res) => {
+    const {keyword} = req.query;
+    let texts = [];
+    if(keyword){
+        texts = await Text.find({
+            $or:[
+                {
+                    title:{
+                        $regex: new RegExp(keyword, "i") // like '%keyword%' i는 대소문자 모두 적용
+                        // $regex: new RegExp(`^${keyword}`, "i") // like 'keyword%'
+                        // $regex: new RegExp(`${keyword}$`, "i") // like '%keyword'
+                    }
+                },
+                {
+                    text:{
+                        $regex: new RegExp(keyword, "i")
+                    }
+                }
+            ]
+        }).populate("owner").sort({createdAt:"desc"});
+        console.log(texts);
+    }
+    return res.render("search", {pageTitle:"Search", texts});
+}

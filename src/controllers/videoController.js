@@ -101,20 +101,20 @@ export const deleteVideo = async (req, res) => {
     return res.redirect("/");
 };
 
-export const search = async (req, res) => {
-    const {keyword} = req.query;
-    let videos = [];
-    if(keyword){
-        videos = await Video.find({
-            title:{
-                $regex: new RegExp(keyword, "i") // like '%keyword%' i는 대소문자 모두 적용
-                // $regex: new RegExp(`^${keyword}`, "i") // like 'keyword%'
-                // $regex: new RegExp(`${keyword}$`, "i") // like '%keyword'
-            }
-        }).populate("owner").sort({createdAt:"desc"});
-    }
-    return res.render("search", {pageTitle:"Search", videos});
-}
+// export const search = async (req, res) => {
+//     const {keyword} = req.query;
+//     let videos = [];
+//     if(keyword){
+//         videos = await Video.find({
+//             title:{
+//                 $regex: new RegExp(keyword, "i") // like '%keyword%' i는 대소문자 모두 적용
+//                 // $regex: new RegExp(`^${keyword}`, "i") // like 'keyword%'
+//                 // $regex: new RegExp(`${keyword}$`, "i") // like '%keyword'
+//             }
+//         }).populate("owner").sort({createdAt:"desc"});
+//     }
+//     return res.render("search", {pageTitle:"Search", videos});
+// }
 
 export const registerView = async (req, res) => {
     const {id} = req.params;

@@ -1,13 +1,13 @@
-extends base.pug
-include mixins/video
+extends base
+include mixins/text
 
 block content
     form(method="GET").search__form
         input(placeholder="search by title", type="text", name="keyword")
         button
             i.fas.fa-search
-    div.video__grid
-        each item in videos
-            +video(item) 
+    div.home__text
+        each item in texts
+            +text(item)
         else 
-            sapn.empty__message No Video found
+            sapn.empty__message No Text found

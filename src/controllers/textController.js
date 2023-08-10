@@ -73,7 +73,6 @@ export const search = async (req, res) => {
                 }
             ]
         }).populate("owner").sort({createdAt:"desc"});
-        console.log(texts);
     }
     return res.render("search", {pageTitle:"Search", texts});
 }

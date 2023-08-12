@@ -1,0 +1,52 @@
+.text__data{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    .text__title{
+        font-size: 26px;
+        margin-bottom: 5px;
+    }
+    .text__createdAt{
+        font-size: 12px;
+    }
+    .text__owner{
+        margin-bottom: 5px;
+        font-size: 14px;
+        a{
+            color: cornflowerblue;
+            text-decoration: underline;
+        }
+    }
+}
+.text__comments{
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+    .text__comment{
+        padding: 10px;
+        border-radius: 9999px;
+        background-color: white;
+        color: black;
+        margin-bottom: 10px;
+    }
+    .comment__delete{
+        cursor: pointer;
+    }
+}
+.text__add-comments{
+    display: flex;
+    flex-direction: column;
+    textarea{
+        width: 200px;
+        height: 50px;
+        margin: auto;
+    }
+    button{
+        height: 20px;
+        width: 100px;
+        margin: auto;
+    }
+}

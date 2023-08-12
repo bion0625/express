@@ -10,6 +10,18 @@ block content
             if String(loggedInUser._id)===String(text.owner)
                 input(value="modify", type="submit")
                 input(value="delete", type="button", id="textDelete")
-
+    if loggedIn
+        div.text__add-comments
+            textarea(cols="30", rows="10", placeholder="Write a nice comment...")
+            button Add Comment
+    div.text__comments
+        ul 
+            each comment in comments
+                li.text__comment(data-id=comment.id)
+                    i.fas.fa-comment
+                    span  #{comment.text}
+                    if String(comment.owner)===String(loggedInUser._id)
+                        span.comment__delete  ❌
 block scripts
+    script(src="/static/js/textComment.js") 
     script(src="/static/js/text.js") 

@@ -1,3 +1,4 @@
+import Comment from "../models/Comment";
 import Text from "../models/Text";
 
 export const getWrite = (req, res) => {
@@ -22,7 +23,8 @@ export const getRead = async (req, res) => {
     const text = await Text.findById(id);
     text.views++;
     await text.save();
-    res.render("text/read", {text});
+    const comments = await Comment.find({text:id}).sort({createdAt:"desc"});
+    res.render("text/read", {text, comments});
 };
 
 export const getDetail = async (req, res) => {

@@ -23,7 +23,7 @@ export const getRead = async (req, res) => {
     const text = await Text.findById(id);
     text.views++;
     await text.save();
-    const comments = await Comment.find({text:id}).sort({createdAt:"desc"});
+    const comments = await Comment.find({text:id}).populate("owner").sort({createdAt:"desc"});
     res.render("text/read", {text, comments});
 };
 

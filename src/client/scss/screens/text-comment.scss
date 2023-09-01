@@ -34,6 +34,10 @@
         .comment__delete{
             cursor: pointer;
         }
+        .text__comment-owner{
+            color: gray;
+            font-size: 10px;
+        }
     }
 }
 .text__add-comments{

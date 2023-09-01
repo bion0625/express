@@ -20,8 +20,11 @@ block content
                 li.text__comment(data-id=comment.id)
                     i.fas.fa-comment
                     span  #{comment.content}
-                    if String(comment.owner)===String(loggedInUser._id)
+                    if String(comment.owner.id)===String(loggedInUser._id)
                         span.comment__delete  ❌
+                    else 
+                        span.text__comment-owner  #{comment.owner.name}
+
 block scripts
     script(src="/static/js/textComment.js") 
     script(src="/static/js/text.js") 

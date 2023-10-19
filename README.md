@@ -17,5 +17,8 @@ iwr https://fly.io/install.ps1 -useb | iex
 # fly 로그인
 flyctl auth login
 
+# package.json 수정
+start: nodemon -> node
+
 # 배포
 flyctl deploy
